@@ -11,7 +11,8 @@ public class IKFootStepper : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckFoot();
+        if (stepRoutine == null)
+         CheckFoot();
     }
 
     private void CheckFoot()
@@ -22,11 +23,15 @@ public class IKFootStepper : MonoBehaviour
             return;
 
         target = hit.point;
-        
-        if (Vector3.Distance(foot.position, target) > stepTriggerDistance && stepRoutine == null)
+
+        if (Vector3.Distance(foot.position, target) > stepTriggerDistance)
         {
             stepRoutine = StartCoroutine(StepRoutine(target));
+            return;
         }
+
+        Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity, floorMask);
+        foot.position = hit.point;
     }
 
     private IEnumerator StepRoutine(Vector3 targetPoint)
