@@ -14,6 +14,8 @@ public class Balls : MonoBehaviour, IThrowable
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!isActive)
+            return;
         if (collision.gameObject.tag == "enemy")
         {
             Vector3 dir = (collision.transform.position - transform.position).normalized;
