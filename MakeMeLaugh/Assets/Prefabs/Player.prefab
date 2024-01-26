@@ -862,51 +862,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2724561381657174356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1971206400120845743
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3530976962770181700}
-  - component: {fileID: 4221638201583030243}
-  m_Layer: 8
-  m_Name: Hand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3530976962770181700
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971206400120845743}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.55, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 607608174518254009}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4221638201583030243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971206400120845743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcad641f8f43d3f4f938393448585365, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 5773371557488594464}
 --- !u!1 &2114088329451424767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,8 +1396,7 @@ Transform:
   m_LocalPosition: {x: 0.1808625, y: 0.46021128, z: -0.016870141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3530976962770181700}
+  m_Children: []
   m_Father: {fileID: 1944880792229521065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6946628900229954686
@@ -1457,7 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0356bc2beca36084a9c6ad57de62f6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 3530976962770181700}
+  hand: {fileID: 5773371557488594464}
   loweredTarget: {fileID: 1710459597690544806}
   raisedTarget: {fileID: 1273793052681947180}
   grabBox: {fileID: 8862571708279846092}
@@ -1722,51 +1676,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3327383708605159769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3833182880522644959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3213542061302572415}
-  - component: {fileID: 3332032294132369018}
-  m_Layer: 8
-  m_Name: Hand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3213542061302572415
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833182880522644959}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.55, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 816941582103663588}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3332032294132369018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833182880522644959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcad641f8f43d3f4f938393448585365, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 5607819774387771432}
 --- !u!1 &3833674170101763637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,8 +1741,7 @@ Transform:
   m_LocalPosition: {x: -0.18086249, y: 0.46021128, z: -0.016870141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3213542061302572415}
+  m_Children: []
   m_Father: {fileID: 1944880792229521065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8179004842318533156
@@ -1848,7 +1756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0356bc2beca36084a9c6ad57de62f6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 3213542061302572415}
+  hand: {fileID: 5607819774387771432}
   loweredTarget: {fileID: 5829328596341836817}
   raisedTarget: {fileID: 8834212191700810682}
   grabBox: {fileID: 8862571708279846092}
