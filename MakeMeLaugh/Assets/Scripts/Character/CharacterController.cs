@@ -11,13 +11,9 @@ public class CharacterController : MonoBehaviour
     private PlayerInput input;
     private Rigidbody rBody;
     private Vector2 inputVector;
-    private bool isJumping, isHoldingLeft, isHoldingRight, isRaisingLeft, isRaisingRight;
+    private bool isHoldingLeft, isHoldingRight, isRaisingLeft, isRaisingRight;
 
     [SerializeField] private float moveSpeed, turnSpeed;
-    [Space]
-    [SerializeField] private float jumpForce, groundRayLength;
-    [SerializeField] private LayerMask floorMask;
-    private bool isGrounded;
     [Space]
     [SerializeField] private float armRaiseSpeed;
 
@@ -25,11 +21,6 @@ public class CharacterController : MonoBehaviour
     private void Awake()
     {
         rBody = GetComponent<Rigidbody>();
-    }
-
-    private void Update()
-    {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundRayLength, floorMask);
     }
 
     private void FixedUpdate()
@@ -43,17 +34,13 @@ public class CharacterController : MonoBehaviour
     {
         Vector3 translatedMovement = new Vector3(inputVector.x, rBody.velocity.y, inputVector.y).normalized * (moveSpeed * Time.deltaTime);
         rBody.velocity = translatedMovement;
-        if (isGrounded && isJumping)
-        {
-            rBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
 
     }
 
     private void TurnCharacter()
     {
-
+        Vector3 moveForward = new Vector3(rBody.velocity.x, 0, rBody.velocity.z);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(moveForward, Vector3.up), turnSpeed);
     }
 
     private void HandleArms()
@@ -62,16 +49,10 @@ public class CharacterController : MonoBehaviour
     }
 
     #region readinputs
-    public void OnMove(InputAction.CallbackContext context) { inputVector = context.ReadValue<Vector2>(); Debug.Log("moving"); }
-    public void OnJump(InputAction.CallbackContext context) { isJumping = context.ReadValueAsButton(); }
+    public void OnMove(InputAction.CallbackContext context) { inputVector = context.ReadValue<Vector2>(); }
     public void OnRaiseLeft(InputAction.CallbackContext context) { isRaisingLeft = context.ReadValueAsButton(); }
     public void OnRaiseRight(InputAction.CallbackContext context) { isRaisingRight = context.ReadValueAsButton(); }
     public void OnHoldLeft(InputAction.CallbackContext context) { isHoldingLeft = context.ReadValueAsButton(); }
     public void OnHoldRight(InputAction.CallbackContext context) { isHoldingRight = context.ReadValueAsButton(); }
     #endregion
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * groundRayLength));
-    }
 }
