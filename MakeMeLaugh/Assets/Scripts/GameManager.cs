@@ -1,19 +1,15 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
 
-    public float MaxTimer;
-    public float TaskTimer;
-    [SerializeField] private UnityEvent TaskCompleteEvent;
-    [SerializeField] private float _timeBonus;
+    public List<Transform> _playerList;
 
-    [SerializeField] private List<ATask> _tasks;
-    [SerializeField] private ATask _currentTask;
-    [SerializeField] private List<Transform> _spawnPositions;
+    public float Timer;
 
     private void Awake()
     {
@@ -21,23 +17,9 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
-    {
-        TaskCompleteEvent.AddListener(FinishTask);
-        TaskTimer = MaxTimer;
-        StartTask();
-    }
-
     private void Update()
     {
-        TaskTimer -= Time.deltaTime;
-        if (TaskTimer > MaxTimer)
-            TaskTimer = MaxTimer;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TaskCompleteEvent?.Invoke();
-        }
+        Timer += Time.deltaTime;
     }
 
     public void StartGame()
@@ -45,32 +27,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void StartTask()
+    public void AddPlayerToList(PlayerInput player)
     {
-        _currentTask = SelectTask();
-        UiManager.instance.SetTaskSprite(_currentTask._taskSprite);
-        Instantiate(_currentTask, _spawnPositions[Random.Range(0, _spawnPositions.Count)]);
+        _playerList.Add(player.transform);
     }
 
-    private ATask SelectTask()
+    public void RemovePlayerFromList(PlayerInput player)
     {
-        return _tasks[Random.Range(0, _tasks.Count)];
-    }
-
-    public void FinishTask()
-    {
-        TaskTimer += _timeBonus;
-        _currentTask = null;
-    }
-
-    public void FailTask()
-    {
-        TaskTimer -= _timeBonus;
-        _currentTask = null;
-    }
-
-    public float GetNormalizedTime()
-    {
-        return TaskTimer / MaxTimer;
+        _playerList.Remove(player.transform);
     }
 }

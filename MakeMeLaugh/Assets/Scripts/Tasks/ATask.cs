@@ -4,28 +4,28 @@ using UnityEngine;
 
 public abstract class ATask : MonoBehaviour
 {
-    [SerializeField] private float _taskTime;
-    public Sprite _taskSprite;
+    //[SerializeField] private float _taskTime;
+    //public Sprite _taskSprite;
 
-    private void Update()
-    {
-        _taskTime -= Time.deltaTime;
+    //private void Update()
+    //{
+    //    _taskTime -= Time.deltaTime;
 
-        if (_taskTime > 0)
-            return;
+    //    if (_taskTime > 0)
+    //        return;
 
-        Fail();
-    }
+    //    Fail();
+    //}
 
-    public void Complete()
-    {
-        GameManager.instance.FinishTask();
-        Destroy(gameObject);
-    }
+    //public void Complete()
+    //{
+    //    GameManager.instance.FinishTask();
+    //    Destroy(gameObject);
+    //}
 
-    public void Fail()
-    {
-        GameManager.instance.FailTask();
-        Destroy(gameObject);
-    }
+    //public void Fail()
+    //{
+    //    GameManager.instance.FailTask();
+    //    Destroy(gameObject);
+    //}
 }

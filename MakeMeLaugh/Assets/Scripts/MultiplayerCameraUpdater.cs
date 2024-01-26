@@ -16,10 +16,12 @@ public class MultiplayerCameraUpdater : MonoBehaviour
     public void AddPlayerToGroup(PlayerInput player)
     {
         targetGroup.AddMember(player.transform, 1, 1);
+        GameManager.instance.AddPlayerToList(player);
     }
 
     public void RemovePlayerFromGroup(PlayerInput player)
     {
         targetGroup.RemoveMember(player.transform);
+        GameManager.instance.RemovePlayerFromList(player);
     }
 }

@@ -18,34 +18,34 @@ public class UiManager : MonoBehaviour
         instance = this;
     }
 
-    private void Update()
-    {
-        SetSliderValue();
-        SetFacialSprite();
-    }
+    //private void Update()
+    //{
+    //    SetSliderValue();
+    //    SetFacialSprite();
+    //}
 
-    private void SetSliderValue()
-    {
-        _entertainmentSlider.value = Mathf.Lerp(_entertainmentSlider.value, GameManager.instance.GetNormalizedTime(), Time.deltaTime * 2);
-    }
+    //private void SetSliderValue()
+    //{
+    //    _entertainmentSlider.value = Mathf.Lerp(_entertainmentSlider.value, GameManager.instance.GetNormalizedTime(), Time.deltaTime * 2);
+    //}
 
-    private void SetFacialSprite()
-    {
-        float value = GameManager.instance.GetNormalizedTime();
+    //private void SetFacialSprite()
+    //{
+    //    float value = GameManager.instance.GetNormalizedTime();
 
-        if (value > _happyThreshold && FaceSprite.sprite != _happySprite)
-        {
-            FaceSprite.sprite = _happySprite;
-        }
-        else if (value < _happyThreshold && value > _neutralThreshold && FaceSprite.sprite != _neutralSprite)
-        {
-            FaceSprite.sprite = _neutralSprite;
-        }
-        else if (value < _neutralThreshold && FaceSprite.sprite != _angrySprite)
-        {
-            FaceSprite.sprite = _angrySprite;
-        }
-    }
+    //    if (value > _happyThreshold && FaceSprite.sprite != _happySprite)
+    //    {
+    //        FaceSprite.sprite = _happySprite;
+    //    }
+    //    else if (value < _happyThreshold && value > _neutralThreshold && FaceSprite.sprite != _neutralSprite)
+    //    {
+    //        FaceSprite.sprite = _neutralSprite;
+    //    }
+    //    else if (value < _neutralThreshold && FaceSprite.sprite != _angrySprite)
+    //    {
+    //        FaceSprite.sprite = _angrySprite;
+    //    }
+    //}
 
     public void SetTaskSprite(Sprite taskSprite)
     {

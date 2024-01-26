@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45dc594d50dd34243bfb4b44360a6d68, type: 3}
+  m_Name: SpawnData
+  m_EditorClassIdentifier: 
+  SpawnEvents:
+  - Time: 0
+    Message: 
+    EnemySpawnData:
+    - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
+        type: 3}
+      AmountToSpawn: 5
+  - Time: 15
+    Message: 
+    EnemySpawnData:
+    - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
+        type: 3}
+      AmountToSpawn: 5
+  - Time: 30
+    Message: 
+    EnemySpawnData:
+    - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
+        type: 3}
+      AmountToSpawn: 5
+  - Time: 45
+    Message: 
+    EnemySpawnData:
+    - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
+        type: 3}
+      AmountToSpawn: 5
+  - Time: 60
+    Message: 
+    EnemySpawnData:
+    - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
+        type: 3}
+      AmountToSpawn: 5
