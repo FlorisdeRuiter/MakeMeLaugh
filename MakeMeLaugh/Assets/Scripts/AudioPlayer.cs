@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
-    public SfxManager _soundManager;
+    private SfxManager _soundManager;
     public AudioClip _audioClip;
 
     private void Start()
