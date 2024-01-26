@@ -44,11 +44,28 @@ public class CharacterController : MonoBehaviour
 
     private void HandleArms()
     {
-        Debug.Log($"{isRaisingLeft}, {isRaisingRight}");
         if (isRaisingLeft)
             leftArm.RaiseArm();
         if (isRaisingRight)
             rightArm.RaiseArm();
+
+        if (isHoldingLeft)
+        {
+            leftArm.GrabItem();
+        }
+        else
+        {
+            leftArm.DropItem();
+        }
+
+        if (isHoldingRight)
+        {
+            rightArm.GrabItem();
+        }
+        else
+        {
+            rightArm.DropItem();
+        }
     }
 
     #region readinputs
