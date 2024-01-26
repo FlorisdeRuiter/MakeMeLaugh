@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _taskTime: 20
-  TotalBonks: 3
+  TotalBonks: 100
   _bonkEvent:
     m_PersistentCalls:
       m_Calls:

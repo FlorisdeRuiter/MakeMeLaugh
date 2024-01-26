@@ -9,7 +9,7 @@ public class Drums : ATask
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer != LayerMask.NameToLayer("DrumSticks") && collision.gameObject.layer != LayerMask.NameToLayer("Hands"))
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Grabbable/DrumSticks"))
             return;
 
         AddBonk();
