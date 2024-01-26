@@ -18,28 +18,28 @@ MonoBehaviour:
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 5
+      AmountToSpawn: 3
   - Time: 15
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 5
+      AmountToSpawn: 3
   - Time: 30
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 5
+      AmountToSpawn: 3
   - Time: 45
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 5
+      AmountToSpawn: 3
   - Time: 60
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 5
+      AmountToSpawn: 3
