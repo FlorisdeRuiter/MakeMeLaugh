@@ -4,36 +4,46 @@ using UnityEngine;
 
 public class IKFootStepper : MonoBehaviour
 {
-    [SerializeField] private Transform leftCastPoint, rightCastPoint, leftFoot, rightFoot;
+    [SerializeField] private Transform castPoint, foot;
     [SerializeField] private float stepTriggerDistance, stepSpeed, stepHeight;
-    private Coroutine rightStepRoutine, leftStepRoutine;
+    [SerializeField] private LayerMask floorMask;
+    private Coroutine stepRoutine;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //determine if feet are too far away
-        //if outside radius, step foot towards new location
+        CheckFoot();
     }
 
-    private void CheckFoot(Transform castPoint, Transform target)
+    private void CheckFoot()
     {
-        //check distance
+        Vector3 target;
+        RaycastHit hit;
+        if (!Physics.Raycast(castPoint.position, Vector3.down, out hit, Mathf.Infinity, floorMask))
+            return;
+
+        target = hit.point;
         
+        if (Vector3.Distance(foot.position, target) > stepTriggerDistance && stepRoutine == null)
+        {
+            stepRoutine = StartCoroutine(StepRoutine(target));
+        }
     }
 
-    private IEnumerator StepRoutine(Transform target, Vector3 targetPoint, Coroutine routine)
+    private IEnumerator StepRoutine(Vector3 targetPoint)
     {
-        Vector3 startPoint = target.position;
+        Vector3 startPoint = foot.position;
         float t = 0;
         while (t < 1)
         {
             t += Time.deltaTime / stepSpeed;
-            target.position = GetStepInterpolation(startPoint, targetPoint, t);
+            foot.position = GetStepInterpolation(startPoint, targetPoint, t);
 
             yield return null;
         }
 
-        target.position = GetStepInterpolation(startPoint, targetPoint, 1);
-        routine = null;
+        foot.position = GetStepInterpolation(startPoint, targetPoint, 1);
+        transform.position = foot.position;
+        stepRoutine = null;
     }
 
     private Vector3 GetStepInterpolation(Vector3 start, Vector3 end, float percent)
