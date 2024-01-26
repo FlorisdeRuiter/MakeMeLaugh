@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class ATask : MonoBehaviour
 {
     [SerializeField] private float _taskTime;
+    public Sprite _taskSprite;
 
     private void Update()
     {

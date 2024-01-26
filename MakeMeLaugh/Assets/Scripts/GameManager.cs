@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     private void StartTask()
     {
         _currentTask = SelectTask();
+        UiManager.instance.SetTaskSprite(_currentTask._taskSprite);
         Instantiate(_currentTask, _spawnPositions[Random.Range(0, _spawnPositions.Count)]);
     }
 

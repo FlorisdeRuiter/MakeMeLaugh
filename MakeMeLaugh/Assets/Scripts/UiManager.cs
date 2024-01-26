@@ -3,11 +3,20 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
+    public static UiManager instance;
+
     [SerializeField] Slider _entertainmentSlider;
 
     [SerializeField] private float _happyThreshold, _neutralThreshold;
     [SerializeField] private Sprite _happySprite, _neutralSprite, _angrySprite;
     [SerializeField] private Image FaceSprite;
+    [Space]
+    [SerializeField] private SpriteRenderer taskRenderer;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
@@ -36,5 +45,10 @@ public class UiManager : MonoBehaviour
         {
             FaceSprite.sprite = _angrySprite;
         }
+    }
+
+    public void SetTaskSprite(Sprite taskSprite)
+    {
+        taskRenderer.sprite = taskSprite;
     }
 }
