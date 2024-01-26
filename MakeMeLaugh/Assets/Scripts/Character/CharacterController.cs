@@ -44,18 +44,13 @@ public class CharacterController : MonoBehaviour
 
     private void HandleArms()
     {
-        if (isRaisingLeft)
-            leftArm.RaiseArm();
-        if (isRaisingRight)
-            rightArm.RaiseArm();
-
         if (isHoldingLeft)
         {
             leftArm.GrabItem();
         }
         else
         {
-            leftArm.DropItem();
+            leftArm.ThrowItem();
         }
 
         if (isHoldingRight)
@@ -64,7 +59,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            rightArm.DropItem();
+            rightArm.ThrowItem();
         }
     }
 

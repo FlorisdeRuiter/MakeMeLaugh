@@ -5,49 +5,47 @@ using UnityEngine;
 
 public class ArmController : MonoBehaviour
 {
-    [SerializeField] private Transform armTarget, raisedTarget;
-    [SerializeField] private float grabDistance, raiseForce;
+    [SerializeField] private Transform hand, loweredTarget, raisedTarget, grabBox;
+    [SerializeField] private Vector3 grabBoxSize;
     [SerializeField] private LayerMask grabMask;
-    private Rigidbody targetBody;
     private GameObject grabbedObject;
-
-    private void Awake()
-    {
-        targetBody = armTarget.GetComponent<Rigidbody>();
-    }
-
-    public void RaiseArm()
-    {
-        targetBody.velocity = (raisedTarget.position - armTarget.position).normalized * raiseForce;
-    }
 
     public void GrabItem()
     {
         if (grabbedObject != null)
             return;
 
-        Collider[] collis = Physics.OverlapSphere(armTarget.position, grabDistance, grabMask);
+        Collider[] collis = Physics.OverlapBox(grabBox.position, grabBoxSize / 2, Quaternion.identity, grabMask);
 
         if (collis.Count() == 0)
             return;
 
-        //cast sphere
         Collider closest = null;
         foreach (Collider collider in collis)
         {
-            if (closest == null || Vector3.Distance(collider.transform.position, armTarget.position) > Vector3.Distance(closest.transform.position, armTarget.position))
+            if (collider.GetComponent<Rigidbody>() != null)
             {
-                closest = collider;
+                if (closest == null || Vector3.Distance(collider.transform.position, grabBox.position) > Vector3.Distance(closest.transform.position, grabBox.position))
+                {
+                    closest = collider;
+                }
             }
         }
 
         //turn off it's physics and grab it
         grabbedObject = closest.gameObject;
-        grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
-        grabbedObject.transform.parent = armTarget.transform;
+        Rigidbody rBody;
+        grabbedObject.TryGetComponent<Rigidbody>(out rBody);
+        if (rBody == null)
+            return;
+        rBody.isKinematic = true;
+        grabbedObject.transform.parent = grabBox.transform;
+
+        hand.position = raisedTarget.position;
+        grabbedObject.transform.position = hand.position;
     }
 
-    public void DropItem()
+    public void ThrowItem()
     {
         if (grabbedObject == null)
             return;
@@ -56,10 +54,12 @@ public class ArmController : MonoBehaviour
         grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
         grabbedObject.GetComponent<Rigidbody>().AddForce(raisedTarget.forward * 50, ForceMode.Impulse);
         grabbedObject = null;
+
+        hand.position = loweredTarget.position;
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(armTarget.position, grabDistance);
+        Gizmos.DrawWireCube(grabBox.position, grabBoxSize);
     }
 }
