@@ -27,8 +27,7 @@ public class EnemyBehaviour : PoolItem
     private void MoveTowardsTarget()
     {
         Vector3 dir = (_target.position - transform.position).normalized;
-        Vector3 newPosition = transform.position + dir * _moveSpeed * Time.deltaTime;
-        _rb.Move(newPosition, Quaternion.identity);
+        _rb.MovePosition(_rb.position + _moveSpeed * Time.fixedDeltaTime * dir);
     }
 
     private void SetTarget()
