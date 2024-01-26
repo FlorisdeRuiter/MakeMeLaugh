@@ -15,7 +15,7 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private float moveSpeed, turnSpeed;
     [Space]
-    [SerializeField] private float armRaiseSpeed;
+    [SerializeField] private ArmController leftArm, rightArm;
 
 
     private void Awake()
@@ -44,7 +44,11 @@ public class CharacterController : MonoBehaviour
 
     private void HandleArms()
     {
-
+        Debug.Log($"{isRaisingLeft}, {isRaisingRight}");
+        if (isRaisingLeft)
+            leftArm.RaiseArm();
+        if (isRaisingRight)
+            rightArm.RaiseArm();
     }
 
     #region readinputs
