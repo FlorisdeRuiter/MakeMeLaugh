@@ -54,6 +54,7 @@ public class ArmController : MonoBehaviour
 
         grabbedObject.transform.parent = null;
         grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+        grabbedObject.GetComponent<Rigidbody>().AddForce(raisedTarget.forward * 50, ForceMode.Impulse);
         grabbedObject = null;
     }
 
