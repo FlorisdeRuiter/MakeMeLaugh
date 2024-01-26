@@ -34,7 +34,6 @@ public class CharacterController : MonoBehaviour
     {
         Vector3 translatedMovement = new Vector3(inputVector.x, rBody.velocity.y, inputVector.y).normalized * (moveSpeed * Time.deltaTime);
         rBody.velocity = translatedMovement;
-
     }
 
     private void TurnCharacter()
