@@ -23,7 +23,7 @@ public class ArmController : MonoBehaviour
         Collider closest = null;
         foreach (Collider collider in collis)
         {
-            if (collider.GetComponent<Rigidbody>() != null)
+            if (!collider.GetComponent<Rigidbody>().isKinematic)
             {
                 if (closest == null || Vector3.Distance(collider.transform.position, grabBox.position) > Vector3.Distance(closest.transform.position, grabBox.position))
                 {
@@ -31,6 +31,9 @@ public class ArmController : MonoBehaviour
                 }
             }
         }
+
+        if (closest == null)
+            return;
 
         //turn off it's physics and grab it
         Debug.Log("grabbing");
