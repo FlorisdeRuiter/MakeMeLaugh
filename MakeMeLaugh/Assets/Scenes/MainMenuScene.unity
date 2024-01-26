@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 1593224348}
   - component: {fileID: 1593224347}
   m_Layer: 0
-  m_Name: OnStart
+  m_Name: MainSceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,6 +1354,7 @@ GameObject:
   - component: {fileID: 1697725658}
   - component: {fileID: 1697725657}
   - component: {fileID: 1697725656}
+  - component: {fileID: 1697725659}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -1475,6 +1476,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697725654}
   m_CullTransparentMesh: 1
+--- !u!114 &1697725659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697725654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a3aa1f5e3b924469ec2e9c0773f0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125792690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,7 +1598,7 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1593224348}
   - {fileID: 2125792694}
   - {fileID: 771043567}
   - {fileID: 470529237}
-  - {fileID: 1593224348}

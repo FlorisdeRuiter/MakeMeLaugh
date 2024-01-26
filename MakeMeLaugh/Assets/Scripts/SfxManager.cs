@@ -2,10 +2,21 @@ using UnityEngine;
 
 public class SfxManager : MonoBehaviour
 {
+    private AudioSource _audioSource;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     public void PlaySound(AudioClip audio)
     {
-        GameObject soundGameObject = new GameObject("Sound");
-        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-        audioSource.PlayOneShot(audio);
+        if (_audioSource == null)
+        {
+            gameObject.AddComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        _audioSource.PlayOneShot(audio);
     }
 }

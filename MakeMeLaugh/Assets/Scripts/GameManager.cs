@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,8 +11,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent TaskCompleteEvent;
     [SerializeField] private float _timeBonus;
 
+    [SerializeField] private List<ATask> _tasks;
+    [SerializeField] private ATask _currentTask;
+    [SerializeField] private List<Transform> _spawnPositions;
+
     private void Awake()
     {
+        //Time.timeScale = 0f;
         instance = this;
     }
 
@@ -19,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         TaskCompleteEvent.AddListener(FinishTask);
         TaskTimer = MaxTimer;
+        StartTask();
     }
 
     private void Update()
@@ -33,9 +40,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void FinishTask()
+    public void StartGame()
+    {
+        Time.timeScale = 1f;
+    }
+
+    private void StartTask()
+    {
+        _currentTask = SelectTask();
+        Instantiate(_currentTask, _spawnPositions[Random.Range(0, _spawnPositions.Count)]);
+    }
+
+    private ATask SelectTask()
+    {
+        return _tasks[Random.Range(0, _tasks.Count)];
+    }
+
+    public void FinishTask()
     {
         TaskTimer += _timeBonus;
+        _currentTask = null;
+    }
+
+    public void FailTask()
+    {
+        TaskTimer -= _timeBonus;
+        _currentTask = null;
     }
 
     public float GetNormalizedTime()

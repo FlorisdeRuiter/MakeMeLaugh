@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
     private SfxManager _soundManager;
-    public AudioClip _audioClip;
+    public List<AudioClip> _audioClips;
 
     private void Start()
     {
@@ -12,6 +13,6 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlaySound()
     {
-        _soundManager.PlaySound(_audioClip);
+        _soundManager.PlaySound(_audioClips[Random.Range(0, _audioClips.Count)]);
     }
 }
