@@ -1606,7 +1606,7 @@ MonoBehaviour:
   raiseForce: 20
   grabMask:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 3072
 --- !u!1 &3265048042227180186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,7 +2047,7 @@ MonoBehaviour:
   raiseForce: 20
   grabMask:
     serializedVersion: 2
-    m_Bits: 1152
+    m_Bits: 3072
 --- !u!1 &3866894710973529285
 GameObject:
   m_ObjectHideFlags: 0
