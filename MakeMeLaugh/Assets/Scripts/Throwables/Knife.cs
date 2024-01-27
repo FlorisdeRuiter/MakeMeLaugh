@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Knife : MonoBehaviour, IThrowable
 {
+    private bool isActive = false;
+    [SerializeField] private int uses = 2;
+
     public void Throw()
     {
-        throw new System.NotImplementedException();
+        isActive = true;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!isActive)
+            return;
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyHealth>()?.DamageEnemy();
+            uses--;
+            if (uses <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

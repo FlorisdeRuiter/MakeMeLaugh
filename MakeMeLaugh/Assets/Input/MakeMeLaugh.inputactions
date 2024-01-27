@@ -7,10 +7,10 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "20483901-0530-4f2a-ae5f-60909d39f536",
                     "expectedControlType": "Vector2",
-                    "processors": "StickDeadzone",
+                    "processors": "StickDeadzone(max=1)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -59,17 +59,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3ea4d645-4504-4529-b061-ab81934c3752",
-                    "path": "<Joystick>/stick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false

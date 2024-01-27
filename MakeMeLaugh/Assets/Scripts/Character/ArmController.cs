@@ -36,7 +36,6 @@ public class ArmController : MonoBehaviour
             return;
 
         //turn off it's physics and grab it
-        Debug.Log("grabbing");
         grabbedObject = closest.gameObject;
         Rigidbody rBody;
         grabbedObject.TryGetComponent<Rigidbody>(out rBody);
@@ -45,7 +44,6 @@ public class ArmController : MonoBehaviour
         rBody.isKinematic = true;
         grabbedObject.transform.parent = grabBox.transform;
 
-        Debug.Log("raising");
         hand.position = raisedTarget.position;
         grabbedObject.transform.position = hand.position;
     }

@@ -25,8 +25,11 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ApplyMovement();
-        TurnCharacter();
+        if (inputVector != Vector2.zero)
+        {
+            ApplyMovement();
+            TurnCharacter();
+        }
         HandleArms();
     }
 

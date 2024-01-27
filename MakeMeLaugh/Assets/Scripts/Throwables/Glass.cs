@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class Glass : MonoBehaviour, IThrowable
 {
+    private bool isActive = false;
+    [SerializeField] private float radius = 3f, yeetForce = 5;
+    [SerializeField] private GameObject wineExplosionPrefab;
+
     public void Throw()
     {
-        throw new System.NotImplementedException();
+        isActive = true;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
+        if (!isActive)
+            return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Collider[] collis = Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider collider in collis)
+        {
+            if (collider.gameObject.tag == "Enemy")
+            {
+                collider.gameObject.GetComponent<EnemyHealth>()?.DamageEnemy();
+                Vector3 dir = (collider.transform.position - transform.position).normalized;
+                collider.gameObject.GetComponent<Rigidbody>().AddForce(dir * yeetForce, ForceMode.Impulse);
+            }
+        }
+
+        Instantiate(wineExplosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

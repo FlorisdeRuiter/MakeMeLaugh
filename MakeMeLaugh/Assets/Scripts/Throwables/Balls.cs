@@ -16,11 +16,12 @@ public class Balls : MonoBehaviour, IThrowable
     {
         if (!isActive)
             return;
-        if (collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Vector3 dir = (collision.transform.position - transform.position).normalized;
             collision.gameObject.GetComponent<Rigidbody>().AddForce(dir * yeetForce, ForceMode.Impulse);
-            Destroy(this);
+            collision.gameObject.GetComponent<EnemyHealth>()?.DamageEnemy();
+            Destroy(gameObject);
         }
     }
 }
