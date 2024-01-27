@@ -25,7 +25,9 @@ public class Balls : MonoBehaviour, IThrowable
         if (collision.gameObject.tag == "Enemy")
         {
             Vector3 dir = (collision.transform.position - transform.position).normalized;
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(dir * yeetForce, ForceMode.Impulse);
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.AddForce(dir * yeetForce, ForceMode.Impulse);
             collision.gameObject.GetComponent<EnemyHealth>()?.DamageEnemy();
             DodgeballManager.instance.HoldBalls(gameObject);
         }

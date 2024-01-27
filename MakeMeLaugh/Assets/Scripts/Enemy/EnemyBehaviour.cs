@@ -43,7 +43,7 @@ public class EnemyBehaviour : PoolItem
         _target = _movetargets[index];
     }
 
-    private void SetTartgetsList(List<Transform> targets)
+    public void SetTargetsList(List<Transform> targets)
     {
         _movetargets = targets;
     }

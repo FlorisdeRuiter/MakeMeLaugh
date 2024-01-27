@@ -18,6 +18,8 @@ public class DodgeballManager : MonoBehaviour
 
     [SerializeField] private UnityEvent p1WinEvent, p2WinEvent;
 
+    [SerializeField] private List<Transform> p1TargetsList, p2TargetsList;
+
     private void Awake()
     {
         instance = this;
@@ -32,6 +34,7 @@ public class DodgeballManager : MonoBehaviour
             Vector3 position = new Vector3(Random.Range(p1Min.position.x, p1Max.position.x), Random.Range(p1Min.position.y, p1Max.position.y), Random.Range(p1Min.position.z, p1Max.position.z));
             GameObject peasant = Instantiate(p1PeasantPrefab, position, Quaternion.identity);
             p1Peasants.Add(peasant);
+            peasant.GetComponent<EnemyBehaviour>().SetTargetsList(p1TargetsList);
         }
 
         for (int i = 0; i < peasantsPerSide; i++)
@@ -39,6 +42,7 @@ public class DodgeballManager : MonoBehaviour
             Vector3 position = new Vector3(Random.Range(p2Min.position.x, p2Max.position.x), Random.Range(p2Min.position.y, p2Max.position.y), Random.Range(p2Min.position.z, p2Max.position.z));
             GameObject peasant = Instantiate(p2PeasantPrefab, position, Quaternion.identity);
             p2Peasants.Add(peasant);
+            peasant.GetComponent<EnemyBehaviour>().SetTargetsList(p2TargetsList);
         }
     }
 
