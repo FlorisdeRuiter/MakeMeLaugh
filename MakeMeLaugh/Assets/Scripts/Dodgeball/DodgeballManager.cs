@@ -35,9 +35,10 @@ public class DodgeballManager : MonoBehaviour
         if (player1 == null)
         {
             player1 = input.GetComponent<CharacterController>();
+            player1.relativeForward = p1Spawn.forward;
             Camera playerCamera = player1.transform.parent.GetComponentInChildren<Camera>();
             player1.transform.position = p1Spawn.transform.position;
-            player1.transform.rotation = p2Spawn.transform.rotation;
+            player1.transform.rotation = p1Spawn.transform.rotation;
             playerCamera.transform.position = p1Cam.transform.position;
             playerCamera.transform.rotation = p1Cam.transform.rotation;
             Debug.Log("player 1 added");
@@ -45,6 +46,7 @@ public class DodgeballManager : MonoBehaviour
         else
         {
             player2 = input.GetComponent<CharacterController>();
+            player1.relativeForward = p2Spawn.forward;
             Camera playerCamera = player2.transform.parent.GetComponentInChildren<Camera>();
             player2.transform.position = p2Spawn.transform.position;
             player2.transform.rotation = p2Spawn.transform.rotation;
