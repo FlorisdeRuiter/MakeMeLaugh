@@ -1572,6 +1572,7 @@ MonoBehaviour:
   grabMask:
     serializedVersion: 2
     m_Bits: 1024
+  yeetForce: 100
 --- !u!1 &3265048042227180186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +1882,7 @@ MonoBehaviour:
   grabMask:
     serializedVersion: 2
     m_Bits: 1024
+  yeetForce: 100
 --- !u!1 &3866894710973529285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,6 +3168,8 @@ MonoBehaviour:
   leftArm: {fileID: 8179004842318533156}
   rightArm: {fileID: 6946628900229954686}
   isLocked: 0
+  relativeForward: {x: 0, y: 0, z: 1}
+  relativeRight: {x: 1, y: 0, z: 0}
 --- !u!1 &6806559630950480937
 GameObject:
   m_ObjectHideFlags: 0

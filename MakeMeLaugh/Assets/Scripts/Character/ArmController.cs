@@ -9,6 +9,7 @@ public class ArmController : MonoBehaviour
     [SerializeField] private Vector3 grabBoxSize;
     [SerializeField] private LayerMask grabMask;
     private GameObject grabbedObject;
+    [SerializeField] private float yeetForce = 50;
 
     public void GrabItem()
     {
@@ -55,7 +56,7 @@ public class ArmController : MonoBehaviour
 
         grabbedObject.transform.parent = null;
         grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
-        grabbedObject.GetComponent<Rigidbody>().AddForce(raisedTarget.forward * 50, ForceMode.Impulse);
+        grabbedObject.GetComponent<Rigidbody>().AddForce(raisedTarget.forward * yeetForce, ForceMode.Impulse);
         grabbedObject.GetComponent<IThrowable>()?.Throw();
         grabbedObject = null;
 
