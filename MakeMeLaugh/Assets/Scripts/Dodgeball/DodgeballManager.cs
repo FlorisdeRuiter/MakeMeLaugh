@@ -31,6 +31,7 @@ public class DodgeballManager : MonoBehaviour
     [SerializeField] private GameObject p1WinPrompt, p2WinPrompt;
     [SerializeField] private GameObject title;
     [SerializeField] private GameObject restartButton;
+    [SerializeField] private Material p1Mat, p2Mat;
 
     private void Awake()
     {
@@ -56,6 +57,11 @@ public class DodgeballManager : MonoBehaviour
 
             Debug.Log("player 1 added");
             p1JoinPrompt.SetActive(false);
+            SkinnedMeshRenderer[] rends = player1.transform.parent.GetComponentsInChildren<SkinnedMeshRenderer>();
+            foreach (SkinnedMeshRenderer rend in rends)
+            {
+                rend.material = p1Mat;
+            }
         }
         else
         {
@@ -73,6 +79,11 @@ public class DodgeballManager : MonoBehaviour
 
             Debug.Log("player 2 added");
             p2JoinPrompt.SetActive(false);
+            SkinnedMeshRenderer[] rends = player2.transform.parent.GetComponentsInChildren<SkinnedMeshRenderer>();
+            foreach (SkinnedMeshRenderer rend in rends)
+            {
+                rend.material = p2Mat;
+            }
         }
 
         if (player1 != null && player2 != null)
