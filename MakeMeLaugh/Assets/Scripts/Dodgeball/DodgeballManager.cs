@@ -7,6 +7,7 @@ public class DodgeballManager : MonoBehaviour
 {
     public static DodgeballManager instance;
 
+    private CharacterController player1, player2;
     [SerializeField] private float peasantsPerSide;
     private List<GameObject> p1Peasants, p2Peasants;
     [SerializeField] private Transform p1Min, p1Max, p2Min, p2Max;
@@ -84,6 +85,8 @@ public class DodgeballManager : MonoBehaviour
 
     private IEnumerator RunCountdown()
     {
+        player1.isLocked = true;
+        player2.isLocked = true;
         SpawnPeasants();
 
         float t = 3;
@@ -95,7 +98,8 @@ public class DodgeballManager : MonoBehaviour
         }
 
         ShowCountdown(0);
-        //unlock player
+        player1.isLocked = false;
+        player2.isLocked = false;
     }
 
     private void ShowCountdown(int number)

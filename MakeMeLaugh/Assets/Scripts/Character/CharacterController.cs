@@ -16,6 +16,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float moveSpeed, turnSpeed;
     [Space]
     [SerializeField] private ArmController leftArm, rightArm;
+    [Space]
+    public bool isLocked = false;
 
 
     private void Awake()
@@ -25,6 +27,9 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isLocked)
+            return;
+
         if (inputVector != Vector2.zero)
         {
             ApplyMovement();
