@@ -12,7 +12,6 @@ public class EnemyBehaviour : PoolItem
 
     private void Start()
     {
-        SetTartgetsList();
         SetNewTarget();
         _rb = GetComponent<Rigidbody>();
     }
