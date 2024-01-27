@@ -27,6 +27,7 @@ public class DodgeballManager : MonoBehaviour
 
     [Space]
     [SerializeField] private GameObject p1JoinPrompt, p2JoinPrompt;
+    [SerializeField] private GameObject p1WinPrompt, p2WinPrompt;
 
     private void Awake()
     {
@@ -186,5 +187,15 @@ public class DodgeballManager : MonoBehaviour
     private void ShowCountdown(int number)
     {
         //send to uimanager, make it visual
+    }
+
+    public void ShowWinnerP1()
+    {
+        p1WinPrompt.SetActive(true);
+    }
+
+    public void ShowWinnerP2()
+    {
+        p2WinPrompt.SetActive(true);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
@@ -13,10 +14,18 @@ public class GameManager : MonoBehaviour
     public float Timer;
     [SerializeField] private float timeToWin = 60f;
 
+    [SerializeField] GameObject selected;
+
     private void Awake()
     {
         //Time.timeScale = 0f;
         instance = this;
+    }
+
+    private void Start()
+    {
+        EventSystem eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(selected);
     }
 
     private void Update()
@@ -24,6 +33,8 @@ public class GameManager : MonoBehaviour
         Timer += Time.deltaTime;
         if (Timer >= timeToWin)
             WinGame();
+
+        Debug.Log(EventSystem.current.currentSelectedGameObject);
     }
 
     public void StartGame()
