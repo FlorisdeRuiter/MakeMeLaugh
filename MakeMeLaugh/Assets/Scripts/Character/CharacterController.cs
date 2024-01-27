@@ -17,7 +17,7 @@ public class CharacterController : MonoBehaviour
     [Space]
     [SerializeField] private ArmController leftArm, rightArm;
     [Space]
-    public bool isLocked = false;
+    public bool isLocked = true;
 
 
     private void Awake()

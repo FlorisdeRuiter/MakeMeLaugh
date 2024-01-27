@@ -24,10 +24,12 @@ public class Balls : MonoBehaviour, IThrowable
             return;
         if (collision.gameObject.tag == "Enemy")
         {
+            //yeet the peasant
             Vector3 dir = (collision.transform.position - transform.position).normalized;
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.AddForce(dir * yeetForce, ForceMode.Impulse);
+
             collision.gameObject.GetComponent<EnemyHealth>()?.DamageEnemy();
             DodgeballManager.instance.HoldBalls(gameObject);
         }

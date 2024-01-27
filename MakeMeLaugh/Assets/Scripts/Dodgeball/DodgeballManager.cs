@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class DodgeballManager : MonoBehaviour
 {
@@ -19,12 +20,33 @@ public class DodgeballManager : MonoBehaviour
     [SerializeField] private UnityEvent p1WinEvent, p2WinEvent;
 
     [SerializeField] private List<Transform> p1TargetsList, p2TargetsList;
+    [SerializeField] private Transform p1Spawn, p2Spawn, p1Cam, p2Cam;
 
     private void Awake()
     {
         instance = this;
         p1Peasants = new List<GameObject>();
         p2Peasants = new List<GameObject>();
+    }
+
+    public void AddPlayer(PlayerInput input)
+    {
+        Camera playerCamera = input.GetComponentInChildren<Camera>();
+
+        if (player1 == null)
+        {
+            player1 = input.GetComponent<CharacterController>();
+            playerCamera.transform.position = p1Cam.transform.position;
+            playerCamera.transform.rotation = p1Cam.transform.rotation;
+        }
+        else
+        {
+            player2 = input.GetComponent<CharacterController>();
+            playerCamera.transform.position = p2Cam.transform.position;
+            playerCamera.transform.rotation = p2Cam.transform.rotation;
+        }
+
+        StartCoroutine(RunCountdown());
     }
 
     private void SpawnPeasants()
@@ -46,7 +68,7 @@ public class DodgeballManager : MonoBehaviour
         }
     }
 
-    private void RemovePeasant(GameObject peasant)
+    public void RemovePeasant(GameObject peasant)
     {
         if (p1Peasants.Contains(peasant))
         {
