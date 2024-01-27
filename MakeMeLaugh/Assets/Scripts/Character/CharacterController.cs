@@ -42,7 +42,7 @@ public class CharacterController : MonoBehaviour
     private void ApplyMovement()
     {
         Vector3 translatedMovement = new Vector3(inputVector.x, rBody.velocity.y, inputVector.y).normalized * (moveSpeed * Time.deltaTime);
-        Vector3.RotateTowards(translatedMovement, Vector3.forward, 360, 360);
+        translatedMovement = Vector3.RotateTowards(translatedMovement, Vector3.forward, 360, 360);
         rBody.velocity = translatedMovement;
     }
 
