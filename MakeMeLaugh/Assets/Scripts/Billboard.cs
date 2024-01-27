@@ -6,6 +6,7 @@ public class Billboard : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.rotation = _camera.transform.rotation;
+        if (_camera != null)
+            transform.rotation = _camera.transform.rotation;
     }
 }
