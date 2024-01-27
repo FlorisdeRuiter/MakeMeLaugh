@@ -59,7 +59,7 @@ public class DodgeballManager : MonoBehaviour
             p2Camera.transform.position = p2CamSpawn.transform.position;
             p2Camera.transform.rotation = p2CamSpawn.transform.rotation;
 
-            p2Camera.cullingMask = p1Camera.cullingMask & ~(1 << LayerMask.NameToLayer("P1Billboard"));
+            p2Camera.cullingMask = p2Camera.cullingMask & ~(1 << LayerMask.NameToLayer("P1Billboard"));
             Debug.Log("player 2 added");
         }
 
