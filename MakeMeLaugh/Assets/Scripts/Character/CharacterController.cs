@@ -45,16 +45,10 @@ public class CharacterController : MonoBehaviour
         //Vector3 translatedMovement = new Vector3(inputVector.x, rBody.velocity.y, inputVector.y).normalized * (moveSpeed * Time.deltaTime);
         Vector3 vForward = Vector3.zero; 
         Vector3 vRight = Vector3.zero;
-        if (inputVector.y != 0)
-        {
-            vForward = (relativeForward * inputVector.y).normalized * (moveSpeed * Time.deltaTime);
-        }
-        if (inputVector.x != 0)
-        {
-            vRight = (relativeRight * inputVector.x).normalized * (moveSpeed * Time.deltaTime);
-        }
+        vForward = (relativeForward * inputVector.y);
+        vRight = (relativeRight * inputVector.x);
 
-        Vector3 translatedMovement = vForward + vRight;
+        Vector3 translatedMovement = (vForward + vRight).normalized * (moveSpeed * Time.deltaTime);
         rBody.velocity = translatedMovement;
     }
 
