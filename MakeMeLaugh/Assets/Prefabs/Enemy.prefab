@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 3139017767601776061}
   - component: {fileID: 299747724642586821}
   - component: {fileID: 65041196668774106}
+  - component: {fileID: -1397424704952382029}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -316,6 +317,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8771cee5364b4574c8011f7ac4f8bacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1397424704952382029}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  animator: {fileID: 65041196668774106}
 --- !u!95 &65041196668774106
 Animator:
   serializedVersion: 5
@@ -337,3 +354,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1397424704952382029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8515238666457735215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3cdbcebc0d5f14abd9676c97936ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClips:
+  - {fileID: 8300000, guid: 30d8ed18ef6b2b948b647794f4736381, type: 3}

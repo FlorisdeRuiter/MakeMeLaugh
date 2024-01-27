@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] UnityEvent deathEvent;
-    private Animator animator;
+    [SerializeField] private Animator animator;
     bool isAlive = true;
 
     public void DamageEnemy()
