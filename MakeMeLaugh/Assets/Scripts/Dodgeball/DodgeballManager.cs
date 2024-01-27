@@ -45,7 +45,7 @@ public class DodgeballManager : MonoBehaviour
         else
         {
             player2 = input.GetComponent<CharacterController>();
-            Camera playerCamera = player1.transform.parent.GetComponentInChildren<Camera>();
+            Camera playerCamera = player2.transform.parent.GetComponentInChildren<Camera>();
             player2.transform.position = p2Spawn.transform.position;
             player2.transform.rotation = p2Spawn.transform.rotation;
             playerCamera.transform.position = p2Cam.transform.position;
