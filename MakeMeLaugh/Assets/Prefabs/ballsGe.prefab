@@ -11,32 +11,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4119d21aba723c24181af1ddd4d29a86,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4119d21aba723c24181af1ddd4d29a86,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4119d21aba723c24181af1ddd4d29a86,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4119d21aba723c24181af1ddd4d29a86,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4119d21aba723c24181af1ddd4d29a86,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.1907806
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4119d21aba723c24181af1ddd4d29a86,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10.515534
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4119d21aba723c24181af1ddd4d29a86,
         type: 3}
@@ -128,7 +128,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4757983447948352418}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b3240674823b8654fac42b94e4c415ee, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -182,3 +182,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yeetForce: 69
+  timeTillInactive: 3
