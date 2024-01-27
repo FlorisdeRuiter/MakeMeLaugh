@@ -67,8 +67,9 @@ public class DodgeballManager : MonoBehaviour
         StartCoroutine(HoldBalls(ball));
     }
 
-    private IEnumerator HoldBalls(GameObject ball)
+    public IEnumerator HoldBalls(GameObject ball)
     {
+        ball.transform.position = new Vector3(-300, -300, -300);
         float t = 0f;
         while (t < timeToHoldBall)
         {

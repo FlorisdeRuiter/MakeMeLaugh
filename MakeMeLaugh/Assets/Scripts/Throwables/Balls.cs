@@ -5,11 +5,17 @@ using UnityEngine;
 public class Balls : MonoBehaviour, IThrowable
 {
     private bool isActive = false;
-    [SerializeField] private float yeetForce;
+    [SerializeField] private float yeetForce, timeTillInactive = 3;
 
     public void Throw()
     {
         isActive = true;
+        Invoke("Deactivate", timeTillInactive);
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,7 +27,7 @@ public class Balls : MonoBehaviour, IThrowable
             Vector3 dir = (collision.transform.position - transform.position).normalized;
             collision.gameObject.GetComponent<Rigidbody>().AddForce(dir * yeetForce, ForceMode.Impulse);
             collision.gameObject.GetComponent<EnemyHealth>()?.DamageEnemy();
-            Destroy(gameObject);
+            DodgeballManager.instance.HoldBalls(gameObject);
         }
     }
 }
