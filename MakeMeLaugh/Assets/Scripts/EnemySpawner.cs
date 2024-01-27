@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
         pool.GetPooledObject(GetRandomPosition(), Quaternion.identity, pool.transform);
     }
 
-    private Vector3 GetRandomPosition()
+    public Vector3 GetRandomPosition()
     {
         Vector3 position = Vector3.zero;
 

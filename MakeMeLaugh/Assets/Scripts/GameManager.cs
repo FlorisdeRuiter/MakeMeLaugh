@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -47,7 +48,20 @@ public class GameManager : MonoBehaviour
 
     public void ShowItem(Sprite item)
     {
+        UiManager.instance.SetItemAlpha(1);
+        UiManager.instance.SetItemSprite(item);
+        StartCoroutine(LowerItemOpacityOverTime());
+    }
 
+    private IEnumerator LowerItemOpacityOverTime()
+    {
+        float i = 1;
+        while ( i > 0 )
+        {
+            UiManager.instance.SetItemAlpha(i);
+            i -= Time.deltaTime / 7f;
+            yield return null;
+        }
     }
 
     public void AddPlayerToList(PlayerInput player)

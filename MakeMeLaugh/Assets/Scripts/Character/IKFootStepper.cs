@@ -7,7 +7,8 @@ public class IKFootStepper : MonoBehaviour
     [SerializeField] private Transform castPoint, foot, targetPoint;
     [SerializeField] private float stepTriggerDistance, stepSpeed, stepHeight;
     [SerializeField] private LayerMask floorMask;
-    private Coroutine stepRoutine;
+    public Coroutine stepRoutine;
+    [SerializeField] private IKFootStepper otherStepper;
 
     private void Update()
     {
@@ -19,7 +20,7 @@ public class IKFootStepper : MonoBehaviour
 
     private void CheckFoot()
     {
-        if (Vector3.Distance(foot.position, targetPoint.position) > stepTriggerDistance && stepRoutine == null)
+        if (Vector3.Distance(foot.position, targetPoint.position) > stepTriggerDistance && stepRoutine == null && otherStepper.stepRoutine == null)
             stepRoutine = StartCoroutine(StepRoutine());
     }
 

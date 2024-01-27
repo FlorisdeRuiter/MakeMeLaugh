@@ -28,7 +28,10 @@ public class SpawnEventManager : MonoBehaviour
             {
                 for (int i = 0; i < spawnData.AmountToSpawn; i++)
                 {
-                    _enemySpawner.SpawnEnemy(spawnData.GameObjectToSpawn);
+                    if (spawnData.GameObjectToSpawn.tag == "Enemy")
+                        _enemySpawner.SpawnEnemy(spawnData.GameObjectToSpawn);
+                    else
+                        Instantiate(spawnData.GameObjectToSpawn, _enemySpawner.GetRandomPosition(), Quaternion.identity);
                 }
             }
 

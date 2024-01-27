@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354808598bc708a48b0e31f4aa4d399c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 10
   yeetForce: 5
   wineExplosionPrefab: {fileID: 8088902324745729568, guid: a935e63f0c6aef54a89748880eea9aaf,
     type: 3}

@@ -910,12 +910,13 @@ MonoBehaviour:
   castPoint: {fileID: 2486534560769081636}
   foot: {fileID: 7808765813706161862}
   targetPoint: {fileID: 4381941019363540482}
-  stepTriggerDistance: 1
-  stepSpeed: 0.5
+  stepTriggerDistance: 0.8
+  stepSpeed: 0.2
   stepHeight: 0.5
   floorMask:
     serializedVersion: 2
     m_Bits: 64
+  otherStepper: {fileID: 6735658737962582773}
 --- !u!114 &6507600651504308631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2142,12 +2143,13 @@ MonoBehaviour:
   castPoint: {fileID: 4151453691200015765}
   foot: {fileID: 580903762421745434}
   targetPoint: {fileID: 6016418894415194392}
-  stepTriggerDistance: 1
-  stepSpeed: 0.5
+  stepTriggerDistance: 0.8
+  stepSpeed: 0.2
   stepHeight: 0.5
   floorMask:
     serializedVersion: 2
     m_Bits: 64
+  otherStepper: {fileID: 2871019135875596295}
 --- !u!114 &6520115321135003511
 MonoBehaviour:
   m_ObjectHideFlags: 0

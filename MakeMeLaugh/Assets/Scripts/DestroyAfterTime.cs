@@ -6,7 +6,7 @@ public class DestroyAfterTime : MonoBehaviour
 {
     [SerializeField] private float timeTillDeath = 10f;
 
-    private void Awake()
+    private void start()
     {
         Invoke("Die", timeTillDeath);
     }
