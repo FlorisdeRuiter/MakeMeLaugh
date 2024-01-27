@@ -40,6 +40,7 @@ public class DodgeballManager : MonoBehaviour
             player1.transform.rotation = p2Spawn.transform.rotation;
             playerCamera.transform.position = p1Cam.transform.position;
             playerCamera.transform.rotation = p1Cam.transform.rotation;
+            Debug.Log("player 1 added");
         }
         else
         {
@@ -48,6 +49,7 @@ public class DodgeballManager : MonoBehaviour
             player2.transform.rotation = p2Spawn.transform.rotation;
             playerCamera.transform.position = p2Cam.transform.position;
             playerCamera.transform.rotation = p2Cam.transform.rotation;
+            Debug.Log("player 2 added");
         }
 
         if (player1 != null && player2 != null)
