@@ -8,53 +8,43 @@ public class EnemyBehaviour : PoolItem
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Rigidbody _rb;
 
+    [SerializeField] private List<Transform> _movetargets;
+
     private void Start()
     {
-        SetTarget();
+        SetTartgetsList();
+        SetNewTarget();
         _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        if (_target == null)
-            SetTarget();
-        if (_target == null)
-            return;
+        if (_target == null || Vector3.Distance(transform.position, _target.position) < 3)
+        {
+            SetNewTarget();
+        }
 
         MoveTowardsTarget();
     }
 
     private void MoveTowardsTarget()
     {
-        Vector3 dir = (_target.position - transform.position).normalized;
-        _rb.MovePosition(_rb.position + _moveSpeed * Time.fixedDeltaTime * dir);
+        transform.position = Vector3.Lerp(transform.position, _target.position, Time.deltaTime);
     }
 
-    private void SetTarget()
+    private void SetNewTarget()
     {
-        _target = GetNearestPlayer(GameManager.instance._playerList);
-    }
-
-    public Transform GetNearestPlayer(List<Transform> playerList)
-    {
-        Transform bestTarget = null;
-        float closestDistanceSqr = Mathf.Infinity;
-        Vector3 currentPosition = transform.position;
-
-        // Takes the transform from nearby enemies
-        foreach (Transform potentialTarget in playerList)
+        int index = Random.Range(0, _movetargets.Count);
+        while (_movetargets[index] == _target)
         {
-            Vector3 directionToTarget = potentialTarget.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-
-            // Compares distance to player
-            if (dSqrToTarget < closestDistanceSqr)
-            {
-                closestDistanceSqr = dSqrToTarget;
-                bestTarget = potentialTarget;
-            }
+            index = Random.Range(0, _movetargets.Count);
         }
 
-        return bestTarget;
+        _target = _movetargets[index];
+    }
+
+    private void SetTartgetsList(List<Transform> targets)
+    {
+        _movetargets = targets;
     }
 }
