@@ -19,6 +19,7 @@ public class CharacterController : MonoBehaviour
     [Space]
     public bool isLocked = true;
     public Vector3 relativeForward = Vector3.forward;
+    public Vector3 relativeRight = Vector3.right;
 
 
     private void Awake()
@@ -41,8 +42,10 @@ public class CharacterController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        Vector3 translatedMovement = new Vector3(inputVector.x, rBody.velocity.y, inputVector.y).normalized * (moveSpeed * Time.deltaTime);
-        translatedMovement = Vector3.RotateTowards(translatedMovement, Vector3.forward, 360, 360);
+        //Vector3 translatedMovement = new Vector3(inputVector.x, rBody.velocity.y, inputVector.y).normalized * (moveSpeed * Time.deltaTime);
+        Vector3 vForward = (relativeForward * inputVector.y).normalized * (moveSpeed * Time.deltaTime);
+        Vector3 vRight = (relativeRight * inputVector.x).normalized * (moveSpeed * Time.deltaTime);
+        Vector3 translatedMovement = vForward + vRight;
         rBody.velocity = translatedMovement;
     }
 
