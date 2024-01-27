@@ -6,14 +6,12 @@ public class EnemyBehaviour : PoolItem
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private Rigidbody _rb;
 
     [SerializeField] private List<Transform> _movetargets;
 
     private void Start()
     {
         SetNewTarget();
-        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
