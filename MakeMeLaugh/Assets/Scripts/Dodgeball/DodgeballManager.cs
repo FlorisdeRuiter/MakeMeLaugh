@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.LowLevel;
 
@@ -28,6 +29,8 @@ public class DodgeballManager : MonoBehaviour
     [Space]
     [SerializeField] private GameObject p1JoinPrompt, p2JoinPrompt;
     [SerializeField] private GameObject p1WinPrompt, p2WinPrompt;
+    [SerializeField] private GameObject title;
+    [SerializeField] private GameObject restartButton;
 
     private void Awake()
     {
@@ -74,6 +77,7 @@ public class DodgeballManager : MonoBehaviour
 
         if (player1 != null && player2 != null)
         {
+            title.SetActive(false);
             Destroy(FindObjectOfType<PlayerInputManager>());
             StartCoroutine(RunCountdown());
         }
@@ -171,7 +175,7 @@ public class DodgeballManager : MonoBehaviour
         player2.isLocked = true;
         SpawnPeasants();
 
-        float t = 3;
+        float t = 1;
         while (t > 0)
         {
             t -= Time.deltaTime;
@@ -192,10 +196,14 @@ public class DodgeballManager : MonoBehaviour
     public void ShowWinnerP1()
     {
         p1WinPrompt.SetActive(true);
+        restartButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(restartButton);
     }
 
     public void ShowWinnerP2()
     {
         p2WinPrompt.SetActive(true);
+        restartButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(restartButton);
     }
 }
