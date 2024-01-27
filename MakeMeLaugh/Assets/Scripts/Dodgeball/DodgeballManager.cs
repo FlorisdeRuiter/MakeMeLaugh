@@ -14,6 +14,7 @@ public class DodgeballManager : MonoBehaviour
     private List<GameObject> p1Peasants, p2Peasants;
     [SerializeField] private Transform p1Min, p1Max, p2Min, p2Max;
     [SerializeField] private GameObject p1PeasantPrefab, p2PeasantPrefab;
+    [SerializeField] private List<Sprite> peasantSprites;
 
     [SerializeField] private float timeToHoldBall = 3;
     [SerializeField] private Transform ballAreaMin, ballAreaMax;
@@ -84,6 +85,13 @@ public class DodgeballManager : MonoBehaviour
             boards[0].gameObject.layer = LayerMask.NameToLayer("P1Billboard");
             boards[1]._camera = p2Camera;
             boards[1].gameObject.layer = LayerMask.NameToLayer("P2Billboard");
+
+            var spriteRenderers = peasant.GetComponentsInChildren<SpriteRenderer>();
+            var sprite = peasantSprites[Random.Range(0, peasantSprites.Count)];
+            foreach (var spriteRenderer in spriteRenderers)
+            {
+                spriteRenderer.sprite = sprite;
+            }
         }
 
         for (int i = 0; i < peasantsPerSide; i++)
@@ -98,6 +106,13 @@ public class DodgeballManager : MonoBehaviour
             boards[0].gameObject.layer = LayerMask.NameToLayer("P1Billboard");
             boards[1]._camera = p2Camera;
             boards[1].gameObject.layer = LayerMask.NameToLayer("P2Billboard");
+
+            var spriteRenderers = peasant.GetComponentsInChildren<SpriteRenderer>();
+            var sprite = peasantSprites[Random.Range(0, peasantSprites.Count)];
+            foreach (var spriteRenderer in spriteRenderers)
+            {
+                spriteRenderer.sprite = sprite;
+            }
         }
     }
 

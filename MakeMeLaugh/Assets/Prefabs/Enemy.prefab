@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5972406000877053611}
   - component: {fileID: 2393203478280600781}
   - component: {fileID: 1513417177877172105}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4018e7635f3892419a7a4add04b71b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
 --- !u!1 &7523149428308550150
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +109,7 @@ GameObject:
   - component: {fileID: 1863776771517175626}
   - component: {fileID: 3251606456994164214}
   - component: {fileID: 2410042494438817444}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4018e7635f3892419a7a4add04b71b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
 --- !u!1 &8515238666457735215
 GameObject:
   m_ObjectHideFlags: 0

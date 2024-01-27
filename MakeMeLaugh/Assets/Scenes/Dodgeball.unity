@@ -1030,6 +1030,20 @@ MonoBehaviour:
     type: 3}
   p2PeasantPrefab: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
     type: 3}
+  peasantSprites:
+  - {fileID: 21300000, guid: a6e864ab5485c92439e4711217079938, type: 3}
+  - {fileID: 21300000, guid: fc2f9226706bd3945829b76eb71ca9da, type: 3}
+  - {fileID: 21300000, guid: ab8cfb26fe5b54644a4290201603bddf, type: 3}
+  - {fileID: 21300000, guid: 1646f0809487e2a4c8365a1c55042752, type: 3}
+  - {fileID: 21300000, guid: 4835ee7078aa1b34d89c983fc0e33361, type: 3}
+  - {fileID: 21300000, guid: 7c4cc0b367e1a5d47ae05a43001a8cc9, type: 3}
+  - {fileID: 21300000, guid: f40136ebc37f57844a15f30c68d9200f, type: 3}
+  - {fileID: 21300000, guid: a70f783a3119f10439b1eab6fea6820a, type: 3}
+  - {fileID: 21300000, guid: 622fa9cd91bb4d24294a97692f291c66, type: 3}
+  - {fileID: 21300000, guid: 53f0aeddc157fa843ba7dab1ae0b2698, type: 3}
+  - {fileID: 21300000, guid: 2bffa8272b3984b4ea39bf9a3f2f7cb9, type: 3}
+  - {fileID: 21300000, guid: 70288cbdcf02bd44c9db5f0ca6de31a8, type: 3}
+  - {fileID: 21300000, guid: 8bfcac30e52592c409a3e316dcc56d69, type: 3}
   timeToHoldBall: 3
   ballAreaMin: {fileID: 691914102}
   ballAreaMax: {fileID: 277402160}
@@ -1053,8 +1067,10 @@ MonoBehaviour:
   - {fileID: 1667900345}
   p1Spawn: {fileID: 577998825}
   p2Spawn: {fileID: 49807078}
-  p1Cam: {fileID: 2022893048}
-  p2Cam: {fileID: 1336240897}
+  p1CamSpawn: {fileID: 2022893048}
+  p2CamSpawn: {fileID: 1336240897}
+  p1Camera: {fileID: 0}
+  p2Camera: {fileID: 0}
 --- !u!4 &422438080
 Transform:
   m_ObjectHideFlags: 0
