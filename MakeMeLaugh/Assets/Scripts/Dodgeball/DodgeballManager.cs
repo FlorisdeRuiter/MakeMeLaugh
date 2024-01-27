@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DodgeballManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class DodgeballManager : MonoBehaviour
 
     [SerializeField] private float timeToHoldBall = 3;
     [SerializeField] private Transform ballAreaMin, ballAreaMax;
+
+    [SerializeField] private UnityEvent p1WinEvent, p2WinEvent;
 
     private void Awake()
     {
@@ -45,15 +48,16 @@ public class DodgeballManager : MonoBehaviour
             p1Peasants.Remove(peasant);
             if (p1Peasants.Count <= 0)
             {
-                //p2 wins
+                p2WinEvent?.Invoke();
             }
         }
+
         if (p2Peasants.Contains(peasant))
         {
             p2Peasants.Remove(peasant);
             if (p2Peasants.Count <= 0)
             {
-                //p1 wins
+                p1WinEvent?.Invoke();
             }
         }
     }
@@ -85,9 +89,12 @@ public class DodgeballManager : MonoBehaviour
         while (t > 0)
         {
             t -= Time.deltaTime;
-            ShowCountdown((int)Mathf.Round(t));
+            ShowCountdown(Mathf.CeilToInt(t));
             yield return null;
         }
+
+        ShowCountdown(0);
+        //unlock player
     }
 
     private void ShowCountdown(int number)
