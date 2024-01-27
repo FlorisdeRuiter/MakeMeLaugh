@@ -36,17 +36,25 @@ public class DodgeballManager : MonoBehaviour
         if (player1 == null)
         {
             player1 = input.GetComponent<CharacterController>();
+            player1.transform.position = p1Spawn.transform.position;
+            player1.transform.rotation = p2Spawn.transform.rotation;
             playerCamera.transform.position = p1Cam.transform.position;
             playerCamera.transform.rotation = p1Cam.transform.rotation;
         }
         else
         {
             player2 = input.GetComponent<CharacterController>();
+            player2.transform.position = p2Spawn.transform.position;
+            player2.transform.rotation = p2Spawn.transform.rotation;
             playerCamera.transform.position = p2Cam.transform.position;
             playerCamera.transform.rotation = p2Cam.transform.rotation;
         }
 
-        StartCoroutine(RunCountdown());
+        if (player1 != null && player2 != null)
+        {
+            Destroy(FindObjectOfType<PlayerInputManager>());
+            StartCoroutine(RunCountdown());
+        }
     }
 
     private void SpawnPeasants()
