@@ -25,6 +25,9 @@ public class DodgeballManager : MonoBehaviour
     [SerializeField] private Transform p1Spawn, p2Spawn, p1CamSpawn, p2CamSpawn;
     [SerializeField] private Camera p1Camera, p2Camera;
 
+    [Space]
+    [SerializeField] private GameObject p1JoinPrompt, p2JoinPrompt;
+
     private void Awake()
     {
         instance = this;
@@ -46,7 +49,9 @@ public class DodgeballManager : MonoBehaviour
             p1Camera.transform.position = p1CamSpawn.transform.position;
             p1Camera.transform.rotation = p1CamSpawn.transform.rotation;
             p1Camera.cullingMask = p1Camera.cullingMask & ~(1 << LayerMask.NameToLayer("P2Billboard"));
+
             Debug.Log("player 1 added");
+            p1JoinPrompt.SetActive(false);
         }
         else
         {
@@ -61,7 +66,9 @@ public class DodgeballManager : MonoBehaviour
             p2Camera.transform.rotation = p2CamSpawn.transform.rotation;
 
             p2Camera.cullingMask = p2Camera.cullingMask & ~(1 << LayerMask.NameToLayer("P1Billboard"));
+
             Debug.Log("player 2 added");
+            p2JoinPrompt.SetActive(false);
         }
 
         if (player1 != null && player2 != null)
