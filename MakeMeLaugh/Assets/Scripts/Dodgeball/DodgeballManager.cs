@@ -12,7 +12,7 @@ public class DodgeballManager : MonoBehaviour
     [SerializeField] private float peasantsPerSide;
     private List<GameObject> p1Peasants, p2Peasants;
     [SerializeField] private Transform p1Min, p1Max, p2Min, p2Max;
-    private GameObject p1PeasantPrefab, p2PeasantPrefab;
+    [SerializeField] private GameObject p1PeasantPrefab, p2PeasantPrefab;
 
     [SerializeField] private float timeToHoldBall = 3;
     [SerializeField] private Transform ballAreaMin, ballAreaMax;
