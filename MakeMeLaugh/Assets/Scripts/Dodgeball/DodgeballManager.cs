@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.LowLevel;
 
 public class DodgeballManager : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class DodgeballManager : MonoBehaviour
     [SerializeField] private UnityEvent p1WinEvent, p2WinEvent;
 
     [SerializeField] private List<Transform> p1TargetsList, p2TargetsList;
-    [SerializeField] private Transform p1Spawn, p2Spawn, p1Cam, p2Cam;
+    [SerializeField] private Transform p1Spawn, p2Spawn, p1CamSpawn, p2CamSpawn;
+    [SerializeField] private Camera p1Camera, p2Camera;
 
     private void Awake()
     {
@@ -31,17 +33,18 @@ public class DodgeballManager : MonoBehaviour
 
     public void AddPlayer(PlayerInput input)
     {
-
         if (player1 == null)
         {
             player1 = input.GetComponent<CharacterController>();
             player1.relativeForward = p1Spawn.forward;
             player1.relativeRight = p1Spawn.right;
-            Camera playerCamera = player1.transform.parent.GetComponentInChildren<Camera>();
+            p1Camera = player1.transform.parent.GetComponentInChildren<Camera>();
             player1.transform.position = p1Spawn.transform.position;
             player1.transform.rotation = p1Spawn.transform.rotation;
-            playerCamera.transform.position = p1Cam.transform.position;
-            playerCamera.transform.rotation = p1Cam.transform.rotation;
+
+            p1Camera.transform.position = p1CamSpawn.transform.position;
+            p1Camera.transform.rotation = p1CamSpawn.transform.rotation;
+            p1Camera.cullingMask = p1Camera.cullingMask & ~(1 << LayerMask.NameToLayer("P2Billboard"));
             Debug.Log("player 1 added");
         }
         else
@@ -49,11 +52,14 @@ public class DodgeballManager : MonoBehaviour
             player2 = input.GetComponent<CharacterController>();
             player2.relativeForward = p2Spawn.forward;
             player2.relativeRight = p2Spawn.right;
-            Camera playerCamera = player2.transform.parent.GetComponentInChildren<Camera>();
+            p2Camera = player2.transform.parent.GetComponentInChildren<Camera>();
             player2.transform.position = p2Spawn.transform.position;
             player2.transform.rotation = p2Spawn.transform.rotation;
-            playerCamera.transform.position = p2Cam.transform.position;
-            playerCamera.transform.rotation = p2Cam.transform.rotation;
+
+            p2Camera.transform.position = p2CamSpawn.transform.position;
+            p2Camera.transform.rotation = p2CamSpawn.transform.rotation;
+
+            p1Camera.cullingMask = p1Camera.cullingMask & ~(1 << LayerMask.NameToLayer("P1Billboard"));
             Debug.Log("player 2 added");
         }
 
@@ -72,6 +78,12 @@ public class DodgeballManager : MonoBehaviour
             GameObject peasant = Instantiate(p1PeasantPrefab, position, Quaternion.identity);
             p1Peasants.Add(peasant);
             peasant.GetComponent<EnemyBehaviour>().SetTargetsList(p1TargetsList);
+            Billboard[] boards = peasant.GetComponentsInChildren<Billboard>();
+
+            boards[0]._camera = p1Camera;
+            boards[0].gameObject.layer = LayerMask.NameToLayer("P1Billboard");
+            boards[1]._camera = p2Camera;
+            boards[1].gameObject.layer = LayerMask.NameToLayer("P2Billboard");
         }
 
         for (int i = 0; i < peasantsPerSide; i++)
@@ -80,6 +92,11 @@ public class DodgeballManager : MonoBehaviour
             GameObject peasant = Instantiate(p2PeasantPrefab, position, Quaternion.identity);
             p2Peasants.Add(peasant);
             peasant.GetComponent<EnemyBehaviour>().SetTargetsList(p2TargetsList);
+
+            boards[0]._camera = p1Camera;
+            boards[0].gameObject.layer = LayerMask.NameToLayer("P1Billboard");
+            boards[1]._camera = p2Camera;
+            boards[1].gameObject.layer = LayerMask.NameToLayer("P2Billboard");
         }
     }
 
