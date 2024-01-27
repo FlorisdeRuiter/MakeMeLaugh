@@ -19,27 +19,72 @@ MonoBehaviour:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
       AmountToSpawn: 3
+    - GameObjectToSpawn: {fileID: 1509207943471278935, guid: 497ea5b413a81fa43befa946cd5ca27d,
+        type: 3}
+      AmountToSpawn: 1
+    - GameObjectToSpawn: {fileID: 4757983447948352418, guid: 4a2004ab2c970a740a13d92545cde08c,
+        type: 3}
+      AmountToSpawn: 1
   - Time: 15
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 3
+      AmountToSpawn: 5
+    - GameObjectToSpawn: {fileID: 1987088535834126163, guid: 5aa64007f3dfd1a4e998f823f39c7b53,
+        type: 3}
+      AmountToSpawn: 1
+    - GameObjectToSpawn: {fileID: 2487512924743218182, guid: 7c26def709918e945b4b51cb8607a7e5,
+        type: 3}
+      AmountToSpawn: 1
+    - GameObjectToSpawn: {fileID: 1970207710178314820, guid: ecf27dc4f4090604094a799110d0deb8,
+        type: 3}
+      AmountToSpawn: 1
+    - GameObjectToSpawn: {fileID: 1509207943471278935, guid: 497ea5b413a81fa43befa946cd5ca27d,
+        type: 3}
+      AmountToSpawn: 1
   - Time: 30
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 3
+      AmountToSpawn: 10
+    - GameObjectToSpawn: {fileID: 1987088535834126163, guid: 5aa64007f3dfd1a4e998f823f39c7b53,
+        type: 3}
+      AmountToSpawn: 2
+    - GameObjectToSpawn: {fileID: 1509207943471278935, guid: 497ea5b413a81fa43befa946cd5ca27d,
+        type: 3}
+      AmountToSpawn: 1
+    - GameObjectToSpawn: {fileID: 2487512924743218182, guid: 7c26def709918e945b4b51cb8607a7e5,
+        type: 3}
+      AmountToSpawn: 1
+    - GameObjectToSpawn: {fileID: 4757983447948352418, guid: 4a2004ab2c970a740a13d92545cde08c,
+        type: 3}
+      AmountToSpawn: 2
   - Time: 45
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
+      AmountToSpawn: 17
+    - GameObjectToSpawn: {fileID: 1987088535834126163, guid: 5aa64007f3dfd1a4e998f823f39c7b53,
+        type: 3}
+      AmountToSpawn: 1
+    - GameObjectToSpawn: {fileID: 1970207710178314820, guid: ecf27dc4f4090604094a799110d0deb8,
+        type: 3}
+      AmountToSpawn: 2
+    - GameObjectToSpawn: {fileID: 4757983447948352418, guid: 4a2004ab2c970a740a13d92545cde08c,
+        type: 3}
       AmountToSpawn: 3
+    - GameObjectToSpawn: {fileID: 2487512924743218182, guid: 7c26def709918e945b4b51cb8607a7e5,
+        type: 3}
+      AmountToSpawn: 4
   - Time: 60
     Message: 
     EnemySpawnData:
     - GameObjectToSpawn: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
         type: 3}
-      AmountToSpawn: 3
+      AmountToSpawn: 20
+    - GameObjectToSpawn: {fileID: 1509207943471278935, guid: 497ea5b413a81fa43befa946cd5ca27d,
+        type: 3}
+      AmountToSpawn: 9

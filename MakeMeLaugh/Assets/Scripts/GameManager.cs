@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public List<Transform> _playerList;
 
     public float Timer;
+    [SerializeField] private float timeToWin = 60f;
 
     private void Awake()
     {
@@ -20,11 +21,33 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Timer += Time.deltaTime;
+        if (Timer >= timeToWin)
+            WinGame();
     }
 
     public void StartGame()
     {
         Time.timeScale = 1f;
+    }
+
+    public void WinGame()
+    {
+        Debug.Log("you win");
+    }
+
+    public void AddScore(float scoreToAdd)
+    {
+        Timer += scoreToAdd;
+    }
+
+    public float GetCurrentFill()
+    {
+        return Timer / timeToWin;
+    }
+
+    public void ShowItem(Sprite item)
+    {
+
     }
 
     public void AddPlayerToList(PlayerInput player)
