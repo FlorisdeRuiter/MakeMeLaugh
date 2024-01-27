@@ -306,13 +306,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49807077}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 1, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 20, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 244055828}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &94893543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,8 +1026,10 @@ MonoBehaviour:
   p1Max: {fileID: 1355541690}
   p2Min: {fileID: 1833555202}
   p2Max: {fileID: 10369042}
-  p1PeasantPrefab: {fileID: 0}
-  p2PeasantPrefab: {fileID: 0}
+  p1PeasantPrefab: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
+    type: 3}
+  p2PeasantPrefab: {fileID: 8515238666457735215, guid: fb65d9a3770005b47bbf200724c7c93a,
+    type: 3}
   timeToHoldBall: 3
   ballAreaMin: {fileID: 691914102}
   ballAreaMax: {fileID: 277402160}
@@ -1422,13 +1424,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577998824}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.5, y: 1, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -20, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 244055828}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &585307895
 GameObject:
   m_ObjectHideFlags: 0
