@@ -92,6 +92,7 @@ public class DodgeballManager : MonoBehaviour
             GameObject peasant = Instantiate(p2PeasantPrefab, position, Quaternion.identity);
             p2Peasants.Add(peasant);
             peasant.GetComponent<EnemyBehaviour>().SetTargetsList(p2TargetsList);
+            Billboard[] boards = peasant.GetComponentsInChildren<Billboard>();
 
             boards[0]._camera = p1Camera;
             boards[0].gameObject.layer = LayerMask.NameToLayer("P1Billboard");
