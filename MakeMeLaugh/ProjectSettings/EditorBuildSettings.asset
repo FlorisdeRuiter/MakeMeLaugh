@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dodgeball.unity
     guid: 87d86600c2c0ae34393ccf8d716c8240
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ControlSchemeScene.unity
     guid: eb3b7c61dc7882e4080678603bcf563f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreditsScene.unity
     guid: 83efee5e61f050742b02f77c2a5dbf91
   m_configObjects:

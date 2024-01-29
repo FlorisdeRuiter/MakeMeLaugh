@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdede23ad4cc5064b838ce8a624f1312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peasantsPerSide: 1
+  peasantsPerSide: 5
   p1Min: {fileID: 585307896}
   p1Max: {fileID: 1355541690}
   p2Min: {fileID: 1833555202}
@@ -6290,7 +6290,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
