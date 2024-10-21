@@ -48,9 +48,9 @@ MonoBehaviour:
   castPoint: {fileID: 2998604315845789904}
   foot: {fileID: 5091866092771429588}
   targetPoint: {fileID: 4930935403279598149}
-  stepTriggerDistance: 3.2
-  stepSpeed: 0.2
-  stepHeight: 1.5
+  stepTriggerDistance: 6
+  stepSpeed: 0.3
+  stepHeight: 3
   floorMask:
     serializedVersion: 2
     m_Bits: 64
@@ -231,9 +231,9 @@ MonoBehaviour:
   castPoint: {fileID: 1716799827893248506}
   foot: {fileID: 6171800667860398028}
   targetPoint: {fileID: 5937805973007712753}
-  stepTriggerDistance: 3.2
-  stepSpeed: 0.2
-  stepHeight: 1.5
+  stepTriggerDistance: 6
+  stepSpeed: 0.3
+  stepHeight: 3
   floorMask:
     serializedVersion: 2
     m_Bits: 64
